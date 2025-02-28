@@ -35,9 +35,9 @@ The second file used is a script that will run AFTER networking is setup.
 # - Option 0 = Copy your script to /boot/Automation_Custom_Script.sh and it will be executed automatically.
 # - Option 1 = Host your script online, then use e.g. AUTO_SETUP_CUSTOM_SCRIPT_EXEC=https://myweb.com/myscript.sh and it will be downloaded and executed automatically.
 # - Executed script log: /var/tmp/dietpi/logs/dietpi-automation_custom_script.log
-AUTO_SETUP_CUSTOM_SCRIPT_EXEC=ADDNEWLINK/Automation_Custom_Script.sh
+AUTO_SETUP_CUSTOM_SCRIPT_EXEC=https://raw.githubusercontent.com/nxion/DietPi-Automated-Install/refs/heads/main/Automation_Custom_Script.sh
 ```
-As you can see I have the script pointing to a [snippet](UPDATE) that runs some tasks outside of the normal automated DietPi config. This script is a part of this project so you can configure it to your needs as well. ITs nice becasue I can just host the file as part of this project and not have to maintain a copy somewhere. This script will finish the Pi setup by disabling Bluetooth and Wifi as well as creates some folders for me for my compose files. I hope to automate adding them as well so this is as close to zero touch as possible.
+As you can see I have the script pointing to a [snippet](https://raw.githubusercontent.com/nxion/DietPi-Automated-Install/refs/heads/main/Automation_Custom_Script.sh) that runs some tasks outside of the normal automated DietPi config. This script is a part of this project so you can configure it to your needs as well. ITs nice becasue I can just host the file as part of this project and not have to maintain a copy somewhere. This script will finish the Pi setup by disabling Bluetooth and Wifi as well as creates some folders for me for my compose files. I hope to automate adding them as well so this is as close to zero touch as possible.
 
 
 ## Installation
