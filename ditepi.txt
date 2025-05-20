@@ -14,7 +14,7 @@ AUTO_SETUP_LOCALE=C.UTF-8
 AUTO_SETUP_KEYBOARD_LAYOUT=us
 
 # Time zone e.g.: "Europe/London" / "America/New_York" | Full list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-AUTO_SETUP_TIMEZONE=America/Denver
+AUTO_SETUP_TIMEZONE=America/Los_Angeles
 
 ##### Network options #####
 # Enable Ethernet or WiFi adapter: 1=enable | 0=disable
@@ -32,13 +32,13 @@ AUTO_SETUP_NET_USESTATIC=0
 AUTO_SETUP_NET_STATIC_IP=192.168.0.100
 AUTO_SETUP_NET_STATIC_MASK=255.255.255.0
 AUTO_SETUP_NET_STATIC_GATEWAY=192.168.0.1
-AUTO_SETUP_NET_STATIC_DNS=9.9.9.9 149.112.112.112
+AUTO_SETUP_NET_STATIC_DNS=9.9.9.9
 
 # Set to "1" to convert DHCP leased network settings into static settings automatically on first boot.
 AUTO_SETUP_DHCP_TO_STATIC=0
 
 # Hostname
-AUTO_SETUP_NET_HOSTNAME=server
+AUTO_SETUP_NET_HOSTNAME=pihole
 
 # Force Ethernet speeds: 0=automatic speed | 10 = 10 Mbit/s | 100 = 100 Mbit/s etc.
 # - Use this when your Ethernet adapter has an unstable 1 Gbit/s link.
@@ -69,7 +69,7 @@ AUTO_UNMASK_LOGIND=0
 # - Option 0 = Copy your script to /boot/Automation_Custom_Script.sh and it will be executed automatically.
 # - Option 1 = Host your script online, then use e.g. AUTO_SETUP_CUSTOM_SCRIPT_EXEC=https://myweb.com/myscript.sh and it will be downloaded and executed automatically.
 # - Executed script log: /var/tmp/dietpi/logs/dietpi-automation_custom_script.log
-AUTO_SETUP_CUSTOM_SCRIPT_EXEC=https://raw.githubusercontent.com/nxion/DietPi-Automated-Install/refs/heads/main/Automation_Custom_Script.sh
+AUTO_SETUP_CUSTOM_SCRIPT_EXEC=https://raw.githubusercontent.com/gracieArmour/PiHole-Automated-Install/refs/heads/main/Automation_Custom_Script.sh
 
 # Restore a DietPi-Backup on first boot: 0 => disable | 1 => interactive restore (show list of found backups) | 2 => non-interactive restore (restore first found backup)
 # - Simply attach the drive/disk/stick which contains the backup. All attached drives will be mounted temporarily and searched automatically.
@@ -99,12 +99,14 @@ AUTO_SETUP_WEB_SERVER_INDEX=0
 # - Desktop preference: 0=LXDE | -1=Xfce | -2=MATE | -3=LXQt | -4=GNUstep
 AUTO_SETUP_DESKTOP_INDEX=0
 # - Browser preference: 0=None | -1=Firefox | -2=Chromium
-AUTO_SETUP_BROWSER_INDEX=-1
+AUTO_SETUP_BROWSER_INDEX=0
 
 # DietPi-Autostart: 0=Console | 7=Console autologin | 1=Kodi | 2=Desktop autologin | 16=Desktop | 4=OpenTyrian | 5=DietPi-CloudShell | 6=Amiberry fast boot | 8=Amiberry standard boot | 9=DDX-Rebirth | 10=CAVA Spectrum | 11=Chromium kiosk | 14=Custom script (background) | 17=Custom script (foreground)
 # - This will be effective on 2nd boot, after first run update and installs have been done.
 # - Related software titles must be installed either on first run installs or via AUTO_SETUP_AUTOMATED=1 + AUTO_SETUP_INSTALL_SOFTWARE_ID (see below).
-AUTO_SETUP_AUTOSTART_TARGET_INDEX=0
+AUTO_SETUP_AUTOSTART_TARGET_INDEX=93 #pi-hole
+AUTO_SETUP_AUTOSTART_TARGET_INDEX=182 #unbound
+
 # Autologin user name
 # - This user must exist before first run installs, otherwise it will be reverted to root.
 # - Applies to all autostart options but: 0, 6, 14 and 16
@@ -122,7 +124,7 @@ AUTO_SETUP_AUTOMATED=1
 # - During first run setup, the password is removed from this file and instead encrypted and saved to root filesystem.
 # - WARN: The default SSH server Dropbear does not support passwords over 100 characters.
 # - WARN: We cannot guarantee that all software options can handle special characters like \"$.
-AUTO_SETUP_GLOBAL_PASSWORD=dietpi
+AUTO_SETUP_GLOBAL_PASSWORD=piholeadmin
 
 # Software to automatically install
 # - Requires AUTO_SETUP_AUTOMATED=1
@@ -130,10 +132,8 @@ AUTO_SETUP_GLOBAL_PASSWORD=dietpi
 # - Add as many entries as you wish, one each line.
 # - DietPi will automatically install all dependencies, like ALSA/X11 for desktops etc.
 # - E.g. the following (without the leading "#") will install the LXDE desktop automatically on first boot:
-AUTO_SETUP_INSTALL_SOFTWARE_ID=17 #Git
-AUTO_SETUP_INSTALL_SOFTWARE_ID=134 #Docker Compose
-AUTO_SETUP_INSTALL_SOFTWARE_ID=162 #Docker
-AUTO_SETUP_INSTALL_SOFTWARE_ID=185 #Portainer
+AUTO_SETUP_INSTALL_SOFTWARE_ID=93 #pi-hole
+AUTO_SETUP_INSTALL_SOFTWARE_ID=182 #unbound
 
 #------------------------------------------------------------------------------------------------------
 ##### Misc DietPi program settings #####
